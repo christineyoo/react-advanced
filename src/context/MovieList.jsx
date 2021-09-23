@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserContext from './userContext';
+import MovieRow from './MovieRow';
 
 export default class MovieList extends Component {
   static contextType = UserContext; //we're setting a static property on this class
@@ -11,7 +12,11 @@ export default class MovieList extends Component {
   render() {
     return (
       <UserContext.Consumer>
-        {(userContext) => <div>Movie List {userContext.name}</div>}
+        {(userContext) => (
+          <div>
+            Movie List {userContext.name} <MovieRow />
+          </div>
+        )}
       </UserContext.Consumer>
     );
   }
