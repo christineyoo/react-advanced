@@ -1,13 +1,16 @@
-import React, { useContext } from 'react'
-import UserContext from './userContext'
+import React, { useContext } from 'react';
+import UserContext from './userContext';
+import CartContext from './cartContext';
 
 export default function MovieRow() {
-    const currentUser = useContext(UserContext);
-    console.log('context', currentUser)
+  const userContext = useContext(UserContext);
+  const cartContext = useContext(CartContext);
 
-    return (
-        <div>
-            {currentUser.name}
-        </div>
-    )
+  console.log('cartContext is', cartContext)
+
+  return (
+    <div>
+      Movie Row {userContext.currentUser ? userContext.currentUser.name : ''}
+    </div>
+  );
 }
